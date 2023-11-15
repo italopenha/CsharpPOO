@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exe016.Entities
+﻿namespace Exe016.Entities
 {
     internal class HourContract
     {
@@ -21,6 +15,11 @@ namespace Exe016.Entities
             Date = date;
             ValuePerHour = valuePerHour;
             Hours = hours;
+        }
+
+        public double TotalValue()
+        {
+            return Hours * ValuePerHour;
         }
     }
 }
