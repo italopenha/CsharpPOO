@@ -13,7 +13,7 @@
             Price = price;
         }
 
-        public string PriceTag()
+        public virtual string PriceTag()
         {
             return $"{Name} $ {Price:F2}";
         }
