@@ -45,5 +45,10 @@
             }
             return tax;
         }
+
+        public override string ToString()
+        {
+            return $"{Name}: $ {Tax():F2}";
+        }
     }
 }
