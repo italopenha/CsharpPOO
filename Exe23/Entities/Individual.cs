@@ -2,7 +2,7 @@
 {
     internal class Individual : TaxPayer
     {
-        public double HealthExpenditures { get; set; }
+        public double HealthExpenditures { get; private set; }
         public override double Tax()
         {
             throw new NotImplementedException();
