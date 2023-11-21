@@ -13,7 +13,37 @@
 
         public override double Tax()
         {
-            throw new NotImplementedException();
+            double rate = 0.0;
+            double tax = 0.0;
+
+            switch (AnualIncome)
+            {
+                case < 20000.00:
+                    rate = 0.15;
+
+                    if (HealthExpenditures > 0.0)
+                    {
+                        tax = (AnualIncome * rate) - (HealthExpenditures * 0.5);
+                    }
+                    else
+                    {
+                        tax = AnualIncome * rate;
+                    }
+                    break;
+                case >= 20000.00:
+                    rate = 0.25;
+
+                    if (HealthExpenditures > 0.0)
+                    {
+                        tax = (AnualIncome * rate) - (HealthExpenditures * 0.5);
+                    }
+                    else
+                    {
+                        tax = AnualIncome * rate;
+                    }
+                    break;
+            }
+            return tax;
         }
     }
 }
