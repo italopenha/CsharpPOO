@@ -10,5 +10,10 @@
             DueDate = dueDate;
             Amount = amount;
         }
+
+        public override string ToString()
+        {
+            return $"{DueDate:dd/MM/yyyy} - {Amount:F2}";
+        }
     }
 }

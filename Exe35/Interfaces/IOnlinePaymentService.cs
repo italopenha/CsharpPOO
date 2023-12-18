@@ -2,7 +2,7 @@
 {
     internal interface IOnlinePaymentService
     {
-        double Interest(double amount);
-        double PaymentFee(double amount, int months);
+        double Interest(double amount, int months);
+        double PaymentFee(double amount);
     }
 }

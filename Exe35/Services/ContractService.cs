@@ -5,7 +5,7 @@ namespace Exe35.Services
 {
     internal class ContractService
     {
-        private IOnlinePaymentService _onlinePaymentService;
+        private readonly IOnlinePaymentService _onlinePaymentService;
 
         public ContractService(IOnlinePaymentService onlinePaymentService)
         {
@@ -14,15 +14,15 @@ namespace Exe35.Services
 
         public void ProcessContract(Contract contract, int months)
         {
-            for (int i = 0; i < months; i++)
+            for (int i = 1; i <= months; i++)
             {
                 double portion = contract.TotalValue / months;
-                double simpleInterest = _onlinePaymentService.Interest(portion);
-                double paymentFee = _onlinePaymentService.PaymentFee(portion, months);
+                double simpleInterest = _onlinePaymentService.Interest(portion, i);
+                double paymentFee = _onlinePaymentService.PaymentFee(portion + simpleInterest);
                 portion += simpleInterest + paymentFee;
 
-                Installment installment = new Installment(contract.Date.AddMonths(1), portion);
-                contract.Installments.Add(installment);
+                Installment installment = new Installment(contract.Date.AddMonths(i), portion);
+                Console.WriteLine(installment);
             }
         }
     }

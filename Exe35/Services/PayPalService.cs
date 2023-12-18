@@ -4,15 +4,15 @@ namespace Exe35.Services
 {
     internal class PayPalService : IOnlinePaymentService
     {
-        public double Interest(double amount)
+        public double Interest(double amount, int months)
         {
-            double interest = amount * 0.01;
+            double interest = (amount * 0.01) * months;
             return interest;
         }
 
-        public double PaymentFee(double amount, int months)
+        public double PaymentFee(double amount)
         {
-            double paymentFee = (amount * 0.02) * months;
+            double paymentFee = amount * 0.02;
             return paymentFee;
         }
     }
